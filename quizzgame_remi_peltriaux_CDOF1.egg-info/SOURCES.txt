@@ -1,0 +1,8 @@
+LICENSE
+README.md
+main.py
+setup.py
+quizzgame_remi_peltriaux_CDOF1.egg-info/PKG-INFO
+quizzgame_remi_peltriaux_CDOF1.egg-info/SOURCES.txt
+quizzgame_remi_peltriaux_CDOF1.egg-info/dependency_links.txt
+quizzgame_remi_peltriaux_CDOF1.egg-info/top_level.txt

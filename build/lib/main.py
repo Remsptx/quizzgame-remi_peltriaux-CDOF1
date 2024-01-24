@@ -38,12 +38,7 @@ history_questions = {
     "11. Who was the leader of the Mongol Empire in the 13th century?": "Genghis Khan",
     "12. Who was the first woman to fly solo across the Atlantic Ocean?": "Amelia Earhart",
 }
+nb_questions = input("How many questions ?")
 
-nb_questions = int(input("How many questions? "))
-i = 0
-
-while i < nb_questions:
-    history_quiz = Quiz(history_questions)
-    history_quiz.ask()
-    i += 1
-
+history_quiz = Quiz(history_questions)
+history_quiz.ask()
