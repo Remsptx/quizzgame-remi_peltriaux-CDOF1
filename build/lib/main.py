@@ -10,21 +10,8 @@ from fuzzywuzzy import fuzz
 
 
 class Quiz:
-    def __init__(self, questions_dict,mcq):
+    def __init__(self, questions_dict):
         self.questions_dict = questions_dict
-        self.mcq = MCQ_Question
-
-    def askMcq(self):
-        i = 1
-        print(self.mcq["question"])
-        for possibilitie in self.mcq["possibilities"] : 
-            print(f"{i} : {possibilitie}")
-            i+=1
-        answer = int(input("Who's your answer ? (use the numbers) : "))
-        if answer == self.mcq["answer"]:
-            print("Correct!")
-        else:
-            print("Incorrect. The correct answer is :", self.mcq["possibilities"][self.mcq["answer"]-1])
 
     def ask(self):
         random_question = random.choice(list(self.questions_dict.keys()))
@@ -51,21 +38,7 @@ history_questions = {
     "11. Who was the leader of the Mongol Empire in the 13th century?": "Genghis Khan",
     "12. Who was the first woman to fly solo across the Atlantic Ocean?": "Amelia Earhart",
 }
+nb_questions = input("How many questions ?")
 
-MCQ_Question = {
-    "question" : "What's the impostor among the new 7 Wonders of the World ?",
-    "possibilities" : ["Great Wall of China","Alexandria Lighthouse","The Machu Pichu"],
-    "answer" : 2
-} 
-
-
-history_quiz = Quiz(history_questions,MCQ_Question)
-history_quiz.askMcq()
-
-nb_questions = int(input("How many questions? "))
-i = 0
-
-while i < nb_questions:
-    history_quiz.ask()
-    i += 1
-
+history_quiz = Quiz(history_questions)
+history_quiz.ask()
