@@ -13,16 +13,18 @@ class Quiz:
     def __init__(self, questions_dict,mcq):
         self.questions_dict = questions_dict
         self.mcq = MCQ_Question
+        self.correct_answers_count = 0
 
     def askMcq(self):
         i = 1
         print(self.mcq["question"])
-        for possibilitie in self.mcq["possibilities"] : 
+        for possibilitie in self.mcq["possibilities"] :
             print(f"{i} : {possibilitie}")
             i+=1
         answer = int(input("Who's your answer ? (use the numbers) : "))
         if answer == self.mcq["answer"]:
             print("Correct!")
+            self.correct_answers_count += 1
         else:
             print("Incorrect. The correct answer is :", self.mcq["possibilities"][self.mcq["answer"]-1])
 
@@ -36,6 +38,9 @@ class Quiz:
             print("Correct!")
         else:
             print(f"Incorrect. The correct answer is: {correct_answer}")
+
+    def display_score(self):
+        print(f"Your score: {self.correct_answers_count}/{nb_questions+1}")  # +1 for the MCQ question
 
 history_questions = {
     "1. Who was the first President of the United States?": "George Washington",
@@ -56,7 +61,7 @@ MCQ_Question = {
     "question" : "What's the impostor among the new 7 Wonders of the World ?",
     "possibilities" : ["Great Wall of China","Alexandria Lighthouse","The Machu Pichu"],
     "answer" : 2
-} 
+}
 
 
 history_quiz = Quiz(history_questions,MCQ_Question)
@@ -69,3 +74,4 @@ while i < nb_questions:
     history_quiz.ask()
     i += 1
 
+history_quiz.display_score()
